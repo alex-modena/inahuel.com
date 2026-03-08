@@ -1,0 +1,2338 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>NAHUEL SpA | Proyectos y Construcción</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        :root {
+            --orange-1: #F87D00;
+            --orange-2: #FF9F1C;
+            --orange-3: #FFB347;
+            --orange-gradient: linear-gradient(135deg, #F87D00 0%, #FF9F1C 50%, #FFB347 100%);
+            --orange-gradient-horizontal: linear-gradient(90deg, #F87D00 0%, #FF9F1C 50%, #FFB347 100%);
+            --primary-blue: #1a3b5d;
+            --primary-dark: #0a1a2a;
+            --white: #ffffff;
+            --gray-light: #f5f7fa;
+            --gray: #e0e4e9;
+            --text-dark: #333333;
+            --text-light: #666666;
+        }
+
+        /* Optimización para móviles */
+        @viewport {
+            width: device-width;
+            zoom: 1.0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-size-adjust: 100%;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            color: var(--text-dark);
+            overflow-x: hidden;
+            background: var(--white);
+            line-height: 1.6;
+        }
+
+        /* Top Bar - Optimizado para móvil */
+        .top-bar {
+            background: var(--primary-dark);
+            color: var(--white);
+            padding: 12px 5%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+            border-bottom: 3px solid var(--orange-1);
+            position: relative;
+            z-index: 1001;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: clamp(1rem, 3vw, 2.5rem);
+        }
+
+        .contact-info span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-info i {
+            color: var(--orange-1);
+            font-size: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .social-links a:hover {
+            color: var(--orange-1);
+        }
+
+        .social-links a:active {
+            color: var(--orange-2);
+        }
+
+        /* Navigation - Optimizado para móvil */
+        nav {
+            background: var(--white);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            background: rgba(255,255,255,0.98);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .lion-logo {
+            width: clamp(50px, 8vw, 65px);
+            height: clamp(50px, 8vw, 65px);
+            background: var(--orange-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            animation: intenseGlow 2s ease-in-out infinite;
+            box-shadow: 0 0 25px rgba(248,125,0,0.5);
+            flex-shrink: 0;
+        }
+
+        .lion-logo::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            background: var(--orange-gradient);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: pulseRing 2s ease-in-out infinite;
+        }
+
+        .lion-logo::after {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: var(--orange-gradient);
+            border-radius: 50%;
+            opacity: 0.1;
+            animation: pulseRing 2s ease-in-out infinite 0.5s;
+        }
+
+        @keyframes intenseGlow {
+            0%, 100% { 
+                box-shadow: 0 0 25px rgba(248,125,0,0.5),
+                           0 0 50px rgba(248,125,0,0.3);
+                transform: scale(1);
+            }
+            50% { 
+                box-shadow: 0 0 45px rgba(248,125,0,0.8),
+                           0 0 70px rgba(248,125,0,0.5);
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes pulseRing {
+            0%, 100% { 
+                transform: scale(1);
+                opacity: 0.3;
+            }
+            50% { 
+                transform: scale(1.2);
+                opacity: 0.1;
+            }
+        }
+
+        .lion-logo svg {
+            width: 65%;
+            height: 65%;
+            fill: var(--white);
+            position: relative;
+            z-index: 2;
+            filter: drop-shadow(0 2px 5px rgba(0,0,0,0.2));
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text .nahuel {
+            font-size: clamp(1.3rem, 5vw, 2rem);
+            font-weight: 800;
+            color: var(--primary-blue);
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-text .spa {
+            font-size: clamp(0.75rem, 2.5vw, 0.95rem);
+            color: var(--orange-1);
+            font-weight: 500;
+        }
+
+        /* Menú hamburguesa para móvil */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            padding: 12px;
+            z-index: 1002;
+        }
+
+        .menu-toggle span {
+            width: 30px;
+            height: 3px;
+            background: var(--primary-blue);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: clamp(1.2rem, 3vw, 2.8rem);
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+            transition: all 0.3s ease;
+            position: relative;
+            cursor: pointer;
+            padding: 5px 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--orange-gradient-horizontal);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background: var(--orange-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links a:active {
+            opacity: 0.7;
+        }
+
+        .btn-contact {
+            background: var(--orange-gradient);
+            color: var(--white) !important;
+            padding: 0.7rem 1.8rem;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 4px 20px rgba(248,125,0,0.3);
+            -webkit-text-fill-color: white !important;
+            white-space: nowrap;
+        }
+
+        .btn-contact:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(248,125,0,0.4);
+        }
+
+        .btn-contact:active {
+            transform: translateY(0);
+        }
+
+        .btn-contact::after {
+            display: none;
+        }
+
+        /* Hero Section - Pantalla completa optimizada */
+        .hero {
+            height: 80vh;
+            min-height: 600px;
+            background: linear-gradient(rgba(10, 26, 42, 0.8), rgba(10, 26, 42, 0.8)), 
+                        url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=2070&q=80') center/cover;
+            display: flex;
+            align-items: center;
+            color: white;
+            padding: 0 8%;
+            position: relative;
+            isolation: isolate;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--orange-gradient-horizontal);
+            z-index: 2;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            width: 100%;
+            z-index: 2;
+            color: var(--white);
+            position: relative;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 0.6rem 2rem;
+            background: rgba(248,125,0,0.15);
+            border: 1px solid var(--orange-1);
+            border-radius: 50px;
+            color: var(--white);
+            font-size: clamp(0.85rem, 3vw, 1rem);
+            margin-bottom: clamp(1.5rem, 4vh, 2.5rem);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            letter-spacing: 0.5px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.2rem, 7vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: clamp(1.2rem, 3vh, 2rem);
+            max-width: 800px;
+        }
+
+        .hero h1 span {
+            background: var(--orange-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: block;
+            font-size: 0.7em;
+            font-weight: 500;
+            margin-top: 0.5rem;
+        }
+
+        .hero p {
+            font-size: clamp(1.1rem, 3.5vw, 1.3rem);
+            margin-bottom: clamp(2rem, 5vh, 3rem);
+            opacity: 0.95;
+            line-height: 1.6;
+            max-width: 700px;
+        }
+
+        .hero-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: clamp(2rem, 6vw, 4rem);
+            margin-top: clamp(2rem, 5vh, 3.5rem);
+        }
+
+        .hero-stat {
+            text-align: left;
+            flex: 1 1 auto;
+            min-width: 120px;
+        }
+
+        .hero-stat .number {
+            font-size: clamp(1.8rem, 6vw, 2.5rem);
+            font-weight: 800;
+            background: var(--orange-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.3rem;
+            line-height: 1.2;
+        }
+
+        .hero-stat .label {
+            font-size: clamp(0.8rem, 2.5vw, 1rem);
+            opacity: 0.9;
+            font-weight: 400;
+            letter-spacing: 0.3px;
+        }
+
+        /* Secciones generales con mejor espaciado */
+        section {
+            position: relative;
+            z-index: 1;
+            scroll-margin-top: 80px;
+            padding: clamp(4rem, 10vh, 7rem) 5%;
+        }
+
+        #inicio {
+            scroll-margin-top: 0;
+            padding: 0;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto clamp(3rem, 8vh, 5rem);
+            padding: 0 2%;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: var(--primary-blue);
+            margin-bottom: 1.2rem;
+            position: relative;
+            display: inline-block;
+            font-weight: 700;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 4px;
+            background: var(--orange-gradient-horizontal);
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            font-size: clamp(1rem, 3.5vw, 1.2rem);
+            line-height: 1.7;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* About Section - Actualizada con servicios detallados */
+        .about {
+            background: var(--white);
+        }
+
+        .about-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: clamp(2.5rem, 6vw, 5rem);
+            align-items: center;
+        }
+
+        .about-content h2 {
+            font-size: clamp(2.2rem, 5vw, 3rem);
+            color: var(--primary-blue);
+            margin-bottom: 1.2rem;
+            position: relative;
+            font-weight: 700;
+        }
+
+        .about-content h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 70px;
+            height: 4px;
+            background: var(--orange-gradient-horizontal);
+            border-radius: 2px;
+        }
+
+        .about-content .subtitle {
+            background: var(--orange-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            font-size: clamp(1.1rem, 3.5vw, 1.3rem);
+            letter-spacing: 0.3px;
+        }
+
+        .about-content p {
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            font-size: clamp(1rem, 3.5vw, 1.1rem);
+        }
+
+        .servicios-detalle {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.2rem;
+            margin: 2rem 0;
+        }
+
+        .servicio-item {
+            background: var(--gray-light);
+            padding: 1rem;
+            border-radius: 10px;
+            border-left: 3px solid var(--orange-1);
+        }
+
+        .servicio-item h4 {
+            color: var(--primary-blue);
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .servicio-item h4 i {
+            color: var(--orange-1);
+            font-size: 1.1rem;
+        }
+
+        .servicio-item p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 0;
+        }
+
+        /* Estilos para el bloque de IA */
+        .ia-highlight {
+            background: linear-gradient(135deg, rgba(248,125,0,0.05) 0%, rgba(26,59,93,0.05) 100%);
+            border-radius: 15px;
+            padding: 1.8rem;
+            margin: 2rem 0;
+            border-left: 4px solid var(--orange-1);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+        }
+
+        .ia-highlight h4 {
+            color: var(--primary-blue);
+            font-size: 1.2rem;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .ia-highlight h4 i {
+            color: var(--orange-1);
+            font-size: 1.6rem;
+        }
+
+        .ia-highlight p {
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+            font-style: italic;
+            color: var(--text-dark);
+        }
+
+        .ia-highlight strong {
+            color: var(--orange-1);
+            font-weight: 700;
+        }
+
+        .ia-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px dashed var(--orange-1);
+        }
+
+        .ia-stat {
+            flex: 1 1 auto;
+            min-width: 120px;
+            text-align: center;
+        }
+
+        .ia-stat .number {
+            font-size: 1.4rem;
+            font-weight: 800;
+            background: var(--orange-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .ia-stat .label {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        /* Nuevo bloque de especialidades de apoyo */
+        .apoyo-highlight {
+            background: linear-gradient(135deg, rgba(248,125,0,0.03) 0%, rgba(26,59,93,0.03) 100%);
+            border-radius: 15px;
+            padding: 1.8rem;
+            margin: 2rem 0;
+            border-left: 4px solid var(--orange-1);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+        }
+
+        .apoyo-highlight h4 {
+            color: var(--primary-blue);
+            font-size: 1.2rem;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .apoyo-highlight h4 i {
+            color: var(--orange-1);
+            font-size: 1.6rem;
+        }
+
+        .apoyo-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .apoyo-item {
+            background: var(--white);
+            padding: 1rem;
+            border-radius: 10px;
+            border: 1px solid var(--gray);
+            transition: all 0.3s ease;
+        }
+
+        .apoyo-item:hover {
+            transform: translateY(-3px);
+            border-color: var(--orange-1);
+            box-shadow: 0 5px 15px rgba(248,125,0,0.1);
+        }
+
+        .apoyo-item h5 {
+            color: var(--primary-blue);
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .apoyo-item h5 i {
+            color: var(--orange-1);
+            font-size: 1.1rem;
+        }
+
+        .apoyo-item p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 0;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .value-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-dark);
+            font-size: clamp(0.9rem, 3vw, 1rem);
+            padding: 0.6rem 0.8rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            background: var(--gray-light);
+            border-left: 3px solid var(--orange-1);
+        }
+
+        .value-item:hover {
+            background: rgba(248,125,0,0.08);
+            transform: translateX(5px);
+        }
+
+        .value-item:active {
+            background: rgba(248,125,0,0.15);
+        }
+
+        .value-item::before {
+            content: '✓';
+            background: var(--orange-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+            font-size: 1.3rem;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: clamp(1.5rem, 3vw, 2.5rem);
+        }
+
+        .about-stat-card {
+            background: var(--gray-light);
+            padding: clamp(1.5rem, 4vw, 2.5rem);
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border-bottom: 4px solid transparent;
+        }
+
+        .about-stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(248,125,0,0.15);
+            border-bottom-color: var(--orange-1);
+        }
+
+        .about-stat-card .number {
+            font-size: clamp(2rem, 6vw, 3rem);
+            font-weight: 800;
+            background: var(--orange-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+
+        .about-stat-card .label {
+            color: var(--primary-blue);
+            font-weight: 600;
+            font-size: clamp(0.9rem, 3vw, 1.1rem);
+        }
+
+        /* Nuevo grid de software de modelamiento */
+        .software-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .software-item {
+            background: var(--white);
+            padding: 1rem;
+            border-radius: 10px;
+            border: 1px solid var(--gray);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .software-item:hover {
+            transform: translateY(-3px);
+            border-color: var(--orange-1);
+            box-shadow: 0 5px 15px rgba(248,125,0,0.1);
+        }
+
+        .software-item i {
+            color: var(--orange-1);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .software-item h5 {
+            color: var(--primary-blue);
+            font-size: 0.95rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .software-item p {
+            color: var(--text-light);
+            font-size: 0.8rem;
+            line-height: 1.4;
+            margin-bottom: 0;
+        }
+
+        /* Introducción */
+        .intro {
+            background: var(--gray-light);
+        }
+
+        .intro-container {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .intro-card {
+            background: var(--white);
+            padding: clamp(2.5rem, 6vw, 4rem);
+            border-radius: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            border-left: 6px solid var(--orange-1);
+        }
+
+        .intro-card p {
+            color: var(--text-light);
+            line-height: 1.9;
+            font-size: clamp(1.1rem, 3.5vw, 1.2rem);
+            margin-bottom: 2rem;
+        }
+
+        .intro-card strong {
+            color: var(--primary-blue);
+            font-weight: 700;
+        }
+
+        .comercial-data {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            margin-top: 2.5rem;
+            padding-top: 2.5rem;
+            border-top: 2px solid var(--gray);
+        }
+
+        .comercial-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--text-dark);
+            font-size: clamp(0.95rem, 3vw, 1.1rem);
+        }
+
+        .comercial-item i {
+            color: var(--orange-1);
+            width: 28px;
+            font-size: 1.3rem;
+        }
+
+        /* Proyectos Destacados */
+        .proyectos-destacados {
+            background: var(--white);
+            padding: clamp(4rem, 12vh, 8rem) 5%;
+        }
+
+        .destacados-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            max-width: 1300px;
+            margin: 3rem auto 0;
+        }
+
+        .destacado-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 1px solid var(--gray);
+            position: relative;
+        }
+
+        .destacado-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 45px rgba(248,125,0,0.2);
+            border-color: var(--orange-1);
+        }
+
+        .destacado-header {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #2a4d7a 100%);
+            color: var(--white);
+            padding: 1.8rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .destacado-header::before {
+            content: '';
+            position: absolute;
+            top: -30px;
+            right: -30px;
+            width: 120px;
+            height: 120px;
+            background: var(--orange-gradient);
+            opacity: 0.2;
+            border-radius: 50%;
+        }
+
+        .destacado-header h3 {
+            font-size: clamp(1.3rem, 4vw, 1.6rem);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .destacado-header p {
+            font-size: clamp(0.9rem, 3vw, 1rem);
+            opacity: 0.9;
+            position: relative;
+            z-index: 2;
+        }
+
+        .destacado-content {
+            padding: 2rem;
+        }
+
+        .destacado-content ul {
+            list-style: none;
+        }
+
+        .destacado-content li {
+            padding: 0.8rem 0;
+            color: var(--text-light);
+            border-bottom: 1px solid var(--gray);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: clamp(0.95rem, 3vw, 1.1rem);
+        }
+
+        .destacado-content li:last-child {
+            border-bottom: none;
+        }
+
+        .destacado-content li i {
+            color: var(--orange-1);
+            width: 24px;
+            font-size: 1.2rem;
+        }
+
+        .destacado-badge {
+            display: inline-block;
+            padding: 0.4rem 1.2rem;
+            background: var(--orange-gradient);
+            color: white;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
+        /* Experiencia Sectores */
+        .experiencia {
+            background: var(--gray-light);
+        }
+
+        .sectores-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .sector-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border: 1px solid var(--gray);
+        }
+
+        .sector-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(248,125,0,0.15);
+            border-color: var(--orange-1);
+        }
+
+        .sector-header {
+            background: var(--primary-blue);
+            color: var(--white);
+            padding: clamp(1.2rem, 4vw, 1.5rem);
+            font-size: clamp(1.2rem, 4.5vw, 1.3rem);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .sector-content {
+            padding: clamp(1.2rem, 4vw, 1.8rem);
+            max-height: 350px;
+            overflow-y: auto;
+        }
+
+        .sector-content ul {
+            list-style: none;
+        }
+
+        .sector-content li {
+            padding: 0.6rem 0;
+            color: var(--text-light);
+            border-bottom: 1px solid var(--gray);
+            font-size: clamp(0.9rem, 3vw, 1rem);
+            transition: all 0.3s ease;
+            line-height: 1.5;
+        }
+
+        .sector-content li:hover {
+            color: var(--orange-1);
+            transform: translateX(8px);
+        }
+
+        .sector-content li:last-child {
+            border-bottom: none;
+        }
+
+        /* Inspección Técnica */
+        .inspeccion {
+            background: var(--white);
+        }
+
+        .inspeccion-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1300px;
+            margin: 2.5rem auto 0;
+        }
+
+        .inspeccion-card {
+            background: var(--gray-light);
+            padding: clamp(1.8rem, 5vw, 2.5rem);
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+            border-left: 5px solid var(--orange-1);
+            transition: all 0.3s ease;
+        }
+
+        .inspeccion-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(248,125,0,0.1);
+        }
+
+        .inspeccion-card h3 {
+            color: var(--primary-blue);
+            font-size: clamp(1.3rem, 4.5vw, 1.5rem);
+            margin-bottom: 1.2rem;
+            font-weight: 700;
+        }
+
+        .inspeccion-card ul {
+            list-style: none;
+        }
+
+        .inspeccion-card li {
+            padding: 0.5rem 0;
+            color: var(--text-light);
+            font-size: clamp(0.95rem, 3vw, 1.05rem);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px dashed var(--gray);
+        }
+
+        .inspeccion-card li:last-child {
+            border-bottom: none;
+        }
+
+        .inspeccion-card li::before {
+            content: '•';
+            color: var(--orange-1);
+            font-weight: bold;
+            font-size: 1.4rem;
+            line-height: 0;
+        }
+
+        /* Servicios Section */
+        .services {
+            background: var(--gray-light);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: clamp(2rem, 5vw, 2.5rem);
+            transition: all 0.3s ease;
+            border: 1px solid var(--gray);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--orange-1);
+            box-shadow: 0 25px 45px rgba(248,125,0,0.12);
+        }
+
+        .service-icon {
+            width: clamp(60px, 10vw, 70px);
+            height: clamp(60px, 10vw, 70px);
+            background: var(--orange-gradient);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.8rem;
+            color: var(--white);
+            font-size: clamp(1.8rem, 5vw, 2.2rem);
+            box-shadow: 0 10px 20px rgba(248,125,0,0.3);
+        }
+
+        .service-card h3 {
+            font-size: clamp(1.4rem, 4.5vw, 1.7rem);
+            color: var(--primary-blue);
+            margin-bottom: 1.2rem;
+            font-weight: 700;
+        }
+
+        .service-list {
+            list-style: none;
+        }
+
+        .service-list li {
+            padding: 0.6rem 0;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid var(--gray);
+            font-size: clamp(0.95rem, 3vw, 1.05rem);
+        }
+
+        .service-list li:last-child {
+            border-bottom: none;
+        }
+
+        .service-list li::before {
+            content: '●';
+            background: var(--orange-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 1rem;
+        }
+
+        /* Contacto */
+        .contact {
+            background: var(--primary-blue);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: clamp(3rem, 6vw, 5rem);
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-info h2 {
+            font-size: clamp(2.2rem, 6vw, 3rem);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .contact-info p {
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+            line-height: 1.8;
+            font-size: clamp(1rem, 3.5vw, 1.2rem);
+        }
+
+        .contact-details {
+            margin-top: 2rem;
+        }
+
+        .contact-detail-item {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+            font-size: clamp(1rem, 3.5vw, 1.1rem);
+        }
+
+        .contact-detail-item:hover {
+            transform: translateX(12px);
+        }
+
+        .contact-detail-item i {
+            width: 45px;
+            height: 45px;
+            background: rgba(248,125,0,0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--orange-1);
+            font-size: 1.3rem;
+            border: 1px solid var(--orange-1);
+            flex-shrink: 0;
+        }
+
+        .contact-detail-item div {
+            color: rgba(255,255,255,0.95);
+        }
+
+        .contact-detail-item strong {
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        .contact-form {
+            background: var(--white);
+            padding: clamp(2rem, 5vw, 3rem);
+            border-radius: 30px;
+            box-shadow: 0 30px 50px rgba(0,0,0,0.3);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1.1rem 1.3rem;
+            border: 2px solid var(--gray);
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--orange-1);
+            box-shadow: 0 0 0 4px rgba(248,125,0,0.1);
+        }
+
+        .btn-submit {
+            background: var(--orange-gradient);
+            color: var(--white);
+            padding: 1.2rem 2rem;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            box-shadow: 0 8px 25px rgba(248,125,0,0.3);
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(248,125,0,0.4);
+        }
+
+        .btn-submit:active {
+            transform: translateY(0);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-dark);
+            color: var(--white);
+            padding: clamp(3rem, 8vh, 4rem) 5% 2rem;
+        }
+
+        .footer-content {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-col h4 {
+            font-size: clamp(1.2rem, 4vw, 1.4rem);
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 45px;
+            height: 3px;
+            background: var(--orange-gradient-horizontal);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+            font-size: clamp(0.95rem, 3vw, 1.05rem);
+        }
+
+        .footer-col ul li a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: inline-block;
+            padding: 3px 0;
+        }
+
+        .footer-col ul li a:hover {
+            background: var(--orange-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            transform: translateX(8px);
+        }
+
+        .footer-col ul li i {
+            color: var(--orange-1);
+            width: 28px;
+            font-size: 1.1rem;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.15);
+            color: rgba(255,255,255,0.6);
+            font-size: clamp(0.8rem, 3vw, 0.95rem);
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        /* Responsive mejorado */
+        @media (max-width: 992px) {
+            .hero {
+                height: auto;
+                min-height: 600px;
+                padding: 80px 5%;
+            }
+            
+            .hero-stats {
+                gap: 2rem;
+            }
+            
+            .servicios-detalle {
+                grid-template-columns: 1fr;
+            }
+            
+            .apoyo-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .software-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 90px;
+                left: 5%;
+                right: 5%;
+                background: var(--white);
+                flex-direction: column;
+                padding: 2rem;
+                box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+                border-radius: 20px;
+                z-index: 999;
+                border: 1px solid var(--gray);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                width: 100%;
+                text-align: center;
+                padding: 1.2rem;
+                font-size: 1.1rem;
+            }
+
+            .btn-contact {
+                width: 100%;
+                text-align: center;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .hero-stat {
+                text-align: center;
+            }
+
+            .hero-stat .number {
+                font-size: 2.2rem;
+            }
+
+            .about-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .destacados-grid,
+            .sectores-grid,
+            .services-grid,
+            .inspeccion-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .servicios-detalle {
+                grid-template-columns: 1fr;
+            }
+            
+            .ia-stats {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .apoyo-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .software-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .top-bar {
+                flex-direction: column;
+                gap: 0.8rem;
+                text-align: center;
+            }
+
+            .contact-info {
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .comercial-data {
+                grid-template-columns: 1fr;
+            }
+            
+            .destacado-header h3 {
+                font-size: 1.3rem;
+            }
+        }
+
+        /* Ajuste para iOS */
+        @supports (-webkit-touch-callout: none) {
+            .hero {
+                height: -webkit-fill-available;
+            }
+        }
+
+        /* Animaciones */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content {
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        /* Scrollbar personalizada */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--gray-light);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--orange-gradient);
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--orange-2);
+        }
+    </style>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="contact-info">
+            <span><i class="fas fa-map-marker-alt"></i> Rosas 1190, Santiago</span>
+            <span><i class="fas fa-phone"></i> +56 9 7548 4128</span>
+            <span><i class="fas fa-envelope"></i> contacto@inahuel.cl</span>
+        </div>
+        <div class="social-links">
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            <div class="lion-logo">
+                <svg viewBox="0 0 24 24" role="img" aria-label="Logo NAHUEL">
+                    <path d="M12 2C8 2 4 5 4 9c0 2.5 1.5 5 4 6-1 2-1 4 0 6 1 2 3 3 4 3s3-1 4-3c1-2 1-4 0-6 2.5-1 4-3.5 4-6 0-4-4-7-8-7z"/>
+                    <circle cx="9" cy="8" r="1.5" fill="white"/>
+                    <circle cx="15" cy="8" r="1.5" fill="white"/>
+                </svg>
+            </div>
+            <div class="logo-text">
+                <span class="nahuel">NAHUEL</span>
+                <span class="spa">SpA</span>
+            </div>
+        </div>
+        <div class="menu-toggle" id="menuToggle" aria-label="Menú" role="button" tabindex="0">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="nav-links" id="navLinks">
+            <a href="#inicio">Inicio</a>
+            <a href="#nosotros">Nosotros</a>
+            <a href="#experiencia">Experiencia</a>
+            <a href="#servicios">Servicios</a>
+            <a href="#contacto" class="btn-contact">Contacto</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section - Pantalla completa optimizada -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">⚡ Proyectos y Construcción Nahuel SpA</div>
+            <h1>
+                Integrando eficiencia para tu empresa
+                <span>Especialistas en Electricidad, Climatización y Corrientes Débiles</span>
+            </h1>
+            <p>Más de 15 años de experiencia en proyectos Malls, Mineros, Hospitalarios, Hoteleros, Educacionales y Comerciales. Modelamiento BIM, Ingeniería Básica, Detalle e I+D.</p>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="number">15+</div>
+                    <div class="label">Años de experiencia</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="number">96+</div>
+                    <div class="label">Locales Supermercados</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="number">500+</div>
+                    <div class="label">Proyectos ejecutados</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nosotros Section - Actualizada con IA y nuevas ventanas -->
+    <section id="nosotros" class="about">
+        <div class="about-container">
+            <div class="about-content">
+                <h2>¿Quiénes Somos?</h2>
+                <div class="subtitle">Proyectos y Construcción Nahuel SpA</div>
+                <p>Somos una empresa especializada en asesorías, inspecciones técnicas, coordinación y desarrollo de proyectos de ingeniería en múltiples especialidades:</p>
+                
+                <div class="servicios-detalle">
+                    <div class="servicio-item">
+                        <h4><i class="fas fa-bolt"></i> Electricidad</h4>
+                        <p>Baja y Media Tensión, Mallas, Pararrayos, Subestaciones, UPS, Canalizaciones, Eficiencia Energética</p>
+                    </div>
+                    <div class="servicio-item">
+                        <h4><i class="fas fa-shield-alt"></i> Corrientes Débiles</h4>
+                        <p>CCTV, Control de Accesos, Seguridad Electrónica, Cableado Estructurado, Detección de Incendio, Citofonía, Audio Evacuación</p>
+                    </div>
+                    <div class="servicio-item">
+                        <h4><i class="fas fa-wind"></i> Climatización</h4>
+                        <p>HVAC, Calefacción, Ventilación, Aire Acondicionado, Sistemas VRV/VRF</p>
+                    </div>
+                    <div class="servicio-item">
+                        <h4><i class="fas fa-microchip"></i> BMS e Iluminación</h4>
+                        <p>Control Centralizado, Sistemas KNX, Iluminación LED, Automatización, Gestión Energética</p>
+                    </div>
+                </div>
+
+                <!-- Inteligencia Artificial destacada -->
+                <div class="ia-highlight">
+                    <h4><i class="fas fa-robot"></i> Innovación con Inteligencia Artificial</h4>
+                    <p>"En NAHUEL integramos Inteligencia Artificial avanzada en nuestros procesos de ingeniería, optimizando diseños, simulaciones predictivas y eficiencia energética. Nuestra plataforma de IA analiza miles de variables en tiempo real para ofrecer soluciones más inteligentes, sostenibles y de mayor rendimiento."</p>
+                    <div class="ia-stats">
+                        <div class="ia-stat">
+                            <span class="number">+30%</span>
+                            <span class="label">eficiencia en diseños</span>
+                        </div>
+                        <div class="ia-stat">
+                            <span class="number">95%</span>
+                            <span class="label">predictiva mantenimiento</span>
+                        </div>
+                        <div class="ia-stat">
+                            <span class="number">IA</span>
+                            <span class="label">Generativa para BIM</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Nuevo bloque de especialidades de apoyo -->
+                <div class="apoyo-highlight">
+                    <h4><i class="fas fa-tools"></i> Especialidades de Apoyo</h4>
+                    <p>Apoyamos con nuestro equipo las áreas de <strong>Residuos, PCI, Combustibles y Sanitario</strong>, administrando y coordinando internamente todas las áreas de desarrollo. Ofrecemos <strong>Modelamiento BIM, Ingeniería básica, detalle e I+D</strong>.</p>
+                    
+                    <div class="apoyo-grid">
+                        <div class="apoyo-item">
+                            <h5><i class="fas fa-trash-alt"></i> Residuos</h5>
+                            <p>Gestión y tratamiento de residuos industriales, estudios de impacto ambiental</p>
+                        </div>
+                        <div class="apoyo-item">
+                            <h5><i class="fas fa-fire-extinguisher"></i> PCI</h5>
+                            <p>Protección contra incendios, detección y extinción, normativa vigente</p>
+                        </div>
+                        <div class="apoyo-item">
+                            <h5><i class="fas fa-oil-can"></i> Combustibles</h5>
+                            <p>Diseño de redes de combustibles, estaciones de servicio, tanques de almacenamiento</p>
+                        </div>
+                        <div class="apoyo-item">
+                            <h5><i class="fas fa-water"></i> Sanitario</h5>
+                            <p>Redes de agua potable, alcantarillado, plantas de tratamiento</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Software de modelamiento por especialidad -->
+                <div class="ia-highlight" style="margin-top: 1rem;">
+                    <h4><i class="fas fa-cube"></i> Software de Modelamiento por Especialidad</h4>
+                    <div class="software-grid">
+                        <div class="software-item">
+                            <i class="fas fa-bolt"></i>
+                            <h5>Electricidad</h5>
+                            <p>Simscape Electrical, ETAP, DigSILENT, PowerFactory</p>
+                        </div>
+                        <div class="software-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <h5>Corrientes Débiles</h5>
+                            <p>Autodesk Revit, Navisworks, Bluebeam, Commscope iBwave</p>
+                        </div>
+                        <div class="software-item">
+                            <i class="fas fa-wind"></i>
+                            <h5>Climatización HVAC</h5>
+                            <p>Carrier HAP, Trane TRACE, IESVE, Revit MEP</p>
+                        </div>
+                        <div class="software-item">
+                            <i class="fas fa-microchip"></i>
+                            <h5>BMS e Iluminación</h5>
+                            <p>KNX ETS, Dialux, Relux, Siemens Desigo, Tridium Niagara</p>
+                        </div>
+                        <div class="software-item">
+                            <i class="fas fa-cube"></i>
+                            <h5>Modelamiento BIM</h5>
+                            <p>Revit, ArchiCAD, Tekla, Civil 3D, Navisworks, Synchro</p>
+                        </div>
+                        <div class="software-item">
+                            <i class="fas fa-flask"></i>
+                            <h5>I+D</h5>
+                            <p>MATLAB, Python, ANSYS, SimScale, OpenFOAM</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="values-grid">
+                    <div class="value-item">Cooperación</div>
+                    <div class="value-item">Innovación</div>
+                    <div class="value-item">Ética Profesional</div>
+                    <div class="value-item">Confianza</div>
+                    <div class="value-item">Compromiso</div>
+                    <div class="value-item">Seguridad</div>
+                    <div class="value-item">Excelencia</div>
+                    <div class="value-item">Sostenibilidad</div>
+                </div>
+            </div>
+            <div class="about-stats">
+                <div class="about-stat-card">
+                    <div class="number">100%</div>
+                    <div class="label">Calidad garantizada</div>
+                    <div class="software-grid" style="margin-top: 1rem; grid-template-columns: 1fr;">
+                        <div class="software-item" style="padding: 0.5rem;">
+                            <p style="font-size: 0.8rem;">ISO 9001, Six Sigma, TQM</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-stat-card">
+                    <div class="number">24/7</div>
+                    <div class="label">Soporte continuo</div>
+                    <div class="software-grid" style="margin-top: 1rem; grid-template-columns: 1fr;">
+                        <div class="software-item" style="padding: 0.5rem;">
+                            <p style="font-size: 0.8rem;">ServiceNow, Jira, Odoo, SAP</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-stat-card">
+                    <div class="number">ISO</div>
+                    <div class="label">Estándares internacionales</div>
+                    <div class="software-grid" style="margin-top: 1rem; grid-template-columns: 1fr;">
+                        <div class="software-item" style="padding: 0.5rem;">
+                            <p style="font-size: 0.8rem;">IEC, IEEE, NFPA, ASHRAE, RIC</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-stat-card">
+                    <div class="number">BIM</div>
+                    <div class="label">Modelamiento avanzado</div>
+                    <div class="software-grid" style="margin-top: 1rem; grid-template-columns: 1fr;">
+                        <div class="software-item" style="padding: 0.5rem;">
+                            <p style="font-size: 0.8rem;">Revit, ArchiCAD, Tekla, Civil 3D</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Introducción y Datos Comerciales -->
+    <section class="intro">
+        <div class="intro-container">
+            <div class="intro-card">
+                <p><strong>Proyectos y Construcción Nahuel SpA</strong> se destaca por su amplia experiencia en proyectos Malls, Mineros, Hospitalarios, Hoteleros, Habitacionales, Establecimientos Educación Superior, Comerciales, Edificios Oficinas, entre otros. Contamos con la capacidad de administrar y coordinar internamente todas nuestras áreas de desarrollo, sumando una vasta experiencia en múltiples áreas de la ingeniería.</p>
+                
+                <div class="comercial-data">
+                    <!-- RUT ELIMINADO -->
+                    <div class="comercial-item">
+                        <i class="fas fa-map-pin"></i>
+                        <span><strong>Dirección:</strong> Rosas 1190, Santiago</span>
+                    </div>
+                    <div class="comercial-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <span><strong>Teléfono:</strong> +56 9 7548 4128</span>
+                    </div>
+                    <div class="comercial-item">
+                        <i class="fas fa-globe"></i>
+                        <span><strong>Web:</strong> www.inahuel.cl</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proyectos Destacados -->
+    <section class="proyectos-destacados">
+        <div class="section-header">
+            <h2>Proyectos Destacados</h2>
+            <p>Últimos trabajos de ingeniería y construcción de alto nivel</p>
+        </div>
+        
+        <div class="destacados-grid">
+            <!-- Schneider + Codelco/Colbún -->
+            <div class="destacado-card">
+                <div class="destacado-header">
+                    <h3>⚡ Salas Eléctricas GIS</h3>
+                    <p>Fabricación para Codelco y Colbún</p>
+                </div>
+                <div class="destacado-content">
+                    <ul>
+                        <li><i class="fas fa-industry"></i> Trabajo conjunto con <strong>Schneider Electric</strong></li>
+                        <li><i class="fas fa-bolt"></i> Fabricación de Salas Eléctricas GIS (Gas Insulated Switchgear)</li>
+                        <li><i class="fas fa-map-pin"></i> Proyectos para <strong>Codelco</strong> (División Andina, Chuquicamata)</li>
+                        <li><i class="fas fa-map-pin"></i> Proyectos para <strong>Colbún</strong> (Centrales de generación)</li>
+                        <li><i class="fas fa-cogs"></i> Tecnología de última generación en media tensión</li>
+                    </ul>
+                    <span class="destacado-badge">En ejecución 2025-2026</span>
+                </div>
+            </div>
+            
+            <!-- Puerto Terrestre Los Andes -->
+            <div class="destacado-card">
+                <div class="destacado-header">
+                    <h3>🏗️ Ampliación Puerto Terrestre</h3>
+                    <p>Complejo Fronterizo Los Andes</p>
+                </div>
+                <div class="destacado-content">
+                    <ul>
+                        <li><i class="fas fa-truck"></i> Ampliación del Puerto Terrestre <strong>Los Andes</strong></li>
+                        <li><i class="fas fa-clipboard-check"></i> Ingeniería eléctrica y de especialidades</li>
+                        <li><i class="fas fa-shield-alt"></i> Sistemas de seguridad y control de acceso</li>
+                        <li><i class="fas fa-wifi"></i> Redes y cableado estructurado</li>
+                        <li><i class="fas fa-solar-panel"></i> Eficiencia energética en nuevas instalaciones</li>
+                    </ul>
+                    <span class="destacado-badge">Ingeniería 2024-2025-2026</span>
+                </div>
+            </div>
+            
+            <!-- Astillero ASMAR -->
+            <div class="destacado-card">
+                <div class="destacado-header">
+                    <h3>⚓ Ampliación Astillero ASMAR</h3>
+                    <p>Ingeniería básica y detalle</p>
+                </div>
+                <div class="destacado-content">
+                    <ul>
+                        <li><i class="fas fa-ship"></i> Ingeniería básica para ampliación del <strong>Astillero ASMAR</strong></li>
+                        <li><i class="fas fa-bolt"></i> Diseño de instalaciones eléctricas de media tensión</li>
+                        <li><i class="fas fa-microchip"></i> Sistemas de control y automatización naval</li>
+                        <li><i class="fas fa-hard-hat"></i> Coordinación BIM de especialidades</li>
+                        <li><i class="fas fa-water"></i> Sistemas contra incendio y seguridad marítima</li>
+                    </ul>
+                    <span class="destacado-badge">En desarrollo 2025-2026</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experiencia por Sectores -->
+    <section id="experiencia" class="experiencia">
+        <div class="section-header">
+            <h2>Experiencia por Sectores</h2>
+            <p>Más de 500 proyectos desarrollados en diversas industrias</p>
+        </div>
+        
+        <div class="sectores-grid">
+            <!-- Centros Comerciales -->
+            <div class="sector-card">
+                <div class="sector-header">
+                    <i class="fas fa-shopping-mall"></i> Centros Comerciales
+                </div>
+                <div class="sector-content">
+                    <ul>
+                        <li>Mall Plaza Trébol, Los Dominicos, Norte, Vespucio, Egaña, Iquique, Oeste, Copiapó, Arica</li>
+                        <li>Confuturo: La Dehesa, Maipú, Punta Arenas</li>
+                        <li>Rentas Falabella: Ovalle, Talca</li>
+                        <li>Centro Comercial MUT (Mercado Urbano Tobalaba)</li>
+                        <li>Strip Center Los Andes, Iquique</li>
+                        <li>Centro Comercial Paseo Puentes</li>
+                        <li>Sofri, Work Place Guay Guay</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Hotelería -->
+            <div class="sector-card">
+                <div class="sector-header">
+                    <i class="fas fa-hotel"></i> Hotelería
+                </div>
+                <div class="sector-content">
+                    <ul>
+                        <li>Hotel W Las Condes</li>
+                        <li>Hotel MARRIOT Las Condes</li>
+                        <li>Hotel HILTON Aeropuerto, Iquique, Vitacura</li>
+                        <li>Hotel Vespucio Kennedy</li>
+                        <li>Hotel ATTON Concepción</li>
+                        <li>Hotel Park Plaza Holanda</li>
+                        <li>Hotel Los Conquistadores</li>
+                        <li>Hotel Puerto Varas Cumbres</li>
+                        <li>Hotel Western Premier</li>
+                        <li>Hotel Solace, Lastarria</li>
+                        <li>Hotel Termas de Puyehue</li>
+                        <li>Hotel Gavina Iquique</li>
+                        <li>Hotel Hampton Antofagasta</li>
+                        <li>Hotel Holiday Inn Concepción</li>
+                        <li>Hotel Monticello</li>
+                        <li>Hotel Diego de Almagro (16 sedes)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Oficinas e Institucionales -->
+            <div class="sector-card">
+                <div class="sector-header">
+                    <i class="fas fa-building"></i> Oficinas e Institucionales
+                </div>
+                <div class="sector-content">
+                    <ul>
+                        <li>Edificios Plaza Los Pinos</li>
+                        <li>Edificios Magnus (Intexa)</li>
+                        <li>Edificios Neruda y Mistral</li>
+                        <li>Edificio Bicentenario (Moneda Teatinos)</li>
+                        <li>Centro Investigación Antártico (MOP)</li>
+                        <li>Nuevo Edificio Central ONEMI</li>
+                        <li>Edificio Anacleto Angelini Campus San Joaquín (PUC)</li>
+                        <li>Edificios Educación Universitaria PUC</li>
+                        <li>Juzgados Yumbel, Rancagua, Los Lagos</li>
+                        <li>Fiscalía Nacional de Economía, Fiscalía Valdivia</li>
+                        <li>+40.000 m2 en proyectos oficinas</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Salud -->
+            <div class="sector-card">
+                <div class="sector-header">
+                    <i class="fas fa-hospital"></i> Salud
+                </div>
+                <div class="sector-content">
+                    <ul>
+                        <li>Clínica Alemana</li>
+                        <li>Hospital Clínico UC</li>
+                        <li>Hospital Clínico Marcoleta UC</li>
+                        <li>Clínica CLC</li>
+                        <li>Integramedica (Plaza Egaña, Copiapó, Dominicos, Plaza Norte)</li>
+                        <li>Bioterio Campus San Joaquín</li>
+                        <li>Nuevo Edificio Servicio Médico Legal RM</li>
+                        <li>CDT Talca</li>
+                        <li>Clínica San Carlos de Apoquindo</li>
+                        <li>Centro del Cáncer PUC</li>
+                        <li>Clínica Alemana Puerto Varas, Valdivia, Temuco</li>
+                        <li>Edificio Médico Mutual de Concepción</li>
+                        <li>Centro Médico PUC San Joaquín</li>
+                        <li>Hospital La Florida, Hospital Maipú (revisor)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Educación -->
+            <div class="sector-card">
+                <div class="sector-header">
+                    <i class="fas fa-graduation-cap"></i> Educación
+                </div>
+                <div class="sector-content">
+                    <ul>
+                        <li>PUC sedes: San Joaquín, Oriente, Central</li>
+                        <li>UNAB sedes: La Serena, Rancagua, Santiago</li>
+                        <li>DUOC Centro Puerto Montt</li>
+                        <li>INACAP: Maipú, Iquique, La Serena</li>
+                        <li>Universidad Los Andes</li>
+                        <li>Universidad San Sebastián</li>
+                        <li>USACH Edificios Economía FAE</li>
+                        <li>Colegio San Nicolás, Chicureo</li>
+                        <li>Nueva Scuola Italiana</li>
+                        <li>Colegio Padre Hurtado</li>
+                        <li>Colegio Calasanz</li>
+                        <li>Santiago College</li>
+                        <li>Colegio MonteMar</li>
+                        <li>Colegio Terraustral</li>
+                        <li>Colegio Nido de Águilas</li>
+                        <li>Colegio Inés Matte Mesias</li>
+                        <li>Colegio Celestino</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Industria y Minería -->
+            <div class="sector-card">
+                <div class="sector-header">
+                    <i class="fas fa-industry"></i> Industria y Minería
+                </div>
+                <div class="sector-content">
+                    <ul>
+                        <li>Planta Margarita, Soprole</li>
+                        <li>Curtiembre Rufino Melero</li>
+                        <li>Planta de aceite Olave, Almazara Olisur, Chorombo</li>
+                        <li>Planta Yilkun Berry Temuco</li>
+                        <li>Molinera El Globo</li>
+                        <li>Cristalería Chile, Cristalería Toro</li>
+                        <li>Bodegas Fasa</li>
+                        <li>Centro distribución Bigger y SDS</li>
+                        <li>Centro distribución Tottus</li>
+                        <li>Escuela servicios Walmart</li>
+                        <li>Campamentos mineros: Collahuasi, Pelambre, Escondida, El Abra, Minera Andina, El Salvador, Codelco Chuquicamata, Angloamerican Los Bronces</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ERNC -->
+            <div class="sector-card">
+                <div class="sector-header">
+                    <i class="fas fa-solar-panel"></i> ERNC
+                </div>
+                <div class="sector-content">
+                    <ul>
+                        <li>Paneles Solares SBA: 28 locales Arica a Pto. Varas 2024-2025</li>
+                        <li>Paneles Solares Mall Plaza: MP-Arica, MP-Copiapó, MP-Egaña</li>
+                        <li>Aerogenerador Mall Plaza Trébol</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Inspección Técnica -->
+    <section class="inspeccion">
+        <div class="section-header">
+            <h2>Inspección Técnica de Obras</h2>
+            <p>Desarrollo de inspecciones técnicas y asesorías para importantes instituciones</p>
+        </div>
+        
+        <div class="inspeccion-grid">
+            <div class="inspeccion-card">
+                <h3>DICTUC S.A.</h3>
+                <ul>
+                    <li>Calidad e inspecciones técnicas CTI</li>
+                    <li>Proyectos edificios oficinas</li>
+                    <li>Proyectos habitacionales</li>
+                    <li>Proyectos industriales y comerciales</li>
+                </ul>
+            </div>
+            
+            <div class="inspeccion-card">
+                <h3>DECON (PUC)</h3>
+                <ul>
+                    <li>Departamento de Extensión</li>
+                    <li>Escuela de Construcción Civil PUC</li>
+                </ul>
+            </div>
+            
+            <div class="inspeccion-card">
+                <h3>KRONOS</h3>
+                <ul>
+                    <li>Centro Cívico Vitacura</li>
+                    <li>Edificio Ministerio Relaciones Exteriores</li>
+                </ul>
+            </div>
+            
+            <div class="inspeccion-card">
+                <h3>JARA y MURILLO</h3>
+                <ul>
+                    <li>Edificio Oficinas Autopista Central</li>
+                    <li>Oficinas Caterpillar</li>
+                </ul>
+            </div>
+            
+            <div class="inspeccion-card">
+                <h3>IDIEM</h3>
+                <ul>
+                    <li>Revisión proyectos calefacción</li>
+                    <li>Edificios habitacionales</li>
+                </ul>
+            </div>
+            
+            <div class="inspeccion-card">
+                <h3>R & Q</h3>
+                <ul>
+                    <li>Asesor climatización</li>
+                    <li>Hospitales Maipú y La Florida (MOP)</li>
+                </ul>
+            </div>
+            
+            <div class="inspeccion-card">
+                <h3>Grupo Nexo</h3>
+                <ul>
+                    <li>Revisión plantas solares Primera etapa 25 locales SBA</li>
+                </ul>
+            </div>
+            
+            <div class="inspeccion-card">
+                <h3>Gormaz y Zenteno</h3>
+                <ul>
+                    <li>Cambio equipos VRV-VRF Hotel W Las Condes</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios Section -->
+    <section id="servicios" class="services">
+        <div class="section-header">
+            <h2>Nuestros Servicios</h2>
+            <p>Soluciones integrales en ingeniería y construcción</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-bolt"></i></div>
+                <h3>Electricidad</h3>
+                <ul class="service-list">
+                    <li>Baja y Media Tensión</li>
+                    <li>Subestaciones GIS</li>
+                    <li>Mallas Equipotenciales</li>
+                    <li>Pararrayos y UPS</li>
+                    <li>Regulaciones y Normalizaciones</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-shield-alt"></i></div>
+                <h3>Corrientes Débiles</h3>
+                <ul class="service-list">
+                    <li>CCTV y Control de Acceso</li>
+                    <li>Seguridad Electrónica</li>
+                    <li>Detección de Incendio</li>
+                    <li>Cableado Estructurado</li>
+                    <li>Redes y Telecomunicaciones</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-wind"></i></div>
+                <h3>Climatización HVAC</h3>
+                <ul class="service-list">
+                    <li>Calefacción y Aire Acondicionado</li>
+                    <li>Ventilación</li>
+                    <li>Sistemas VRV/VRF</li>
+                    <li>Eficiencia energética</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-microchip"></i></div>
+                <h3>BMS e Iluminación</h3>
+                <ul class="service-list">
+                    <li>Control Centralizado</li>
+                    <li>Sistemas KNX</li>
+                    <li>Iluminación LED</li>
+                    <li>Automatización</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-cube"></i></div>
+                <h3>Modelamiento BIM</h3>
+                <ul class="service-list">
+                    <li>Ingeniería básica y de detalle</li>
+                    <li>Coordinación 3D</li>
+                    <li>Gestión de proyectos</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-flask"></i></div>
+                <h3>I+D</h3>
+                <ul class="service-list">
+                    <li>Investigación</li>
+                    <li>Desarrollo de soluciones</li>
+                    <li>Innovación tecnológica</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="contact">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Contacto</h2>
+                <p>Estamos listos para tu proyecto con la excelencia y profesionalismo que nos caracteriza. Contáctanos para una asesoría personalizada.</p>
+                <div class="contact-details">
+                    <div class="contact-detail-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div><strong>Dirección:</strong> Rosas 1190, Santiago</div>
+                    </div>
+                    <div class="contact-detail-item">
+                        <i class="fas fa-phone"></i>
+                        <div><strong>Teléfono:</strong> +56 9 7548 4128</div>
+                    </div>
+                    <div class="contact-detail-item">
+                        <i class="fas fa-envelope"></i>
+                        <div><strong>Email:</strong> contacto@inahuel.cl</div>
+                    </div>
+                    <div class="contact-detail-item">
+                        <i class="fas fa-globe"></i>
+                        <div><strong>Web:</strong> www.inahuel.cl</div>
+                    </div>
+                    <!-- RUT ELIMINADO -->
+                </div>
+            </div>
+            <div class="contact-form">
+                <form id="contactForm" action="https://formsubmit.co/contacto@inahuel.cl" method="POST" onsubmit="return validarTelefono()">
+                    <input type="hidden" name="_subject" value="Nuevo mensaje desde sitio web NAHUEL">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next" value="https://inahuel.cl/gracias.html">
+                    <div class="form-group">
+                        <input type="text" name="nombre" placeholder="Nombre completo" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="empresa" placeholder="Empresa">
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" name="telefono" id="telefono" placeholder="Teléfono (mínimo 9 caracteres)" pattern="[0-9+]{9,15}" title="El teléfono debe tener al menos 9 caracteres numéricos" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="mensaje" rows="4" placeholder="Mensaje" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Enviar Mensaje</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>NAHUEL SpA</h4>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#experiencia">Experiencia</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Servicios</h4>
+                <ul>
+                    <li><a href="#servicios">Electricidad</a></li>
+                    <li><a href="#servicios">Corrientes Débiles</a></li>
+                    <li><a href="#servicios">Climatización</a></li>
+                    <li><a href="#servicios">BMS e Iluminación</a></li>
+                    <li><a href="#servicios">Ingeniería BIM</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Horario</h4>
+                <ul>
+                    <li>Lun-Vie: 9:00 - 18:00</li>
+                    <li>Sábados: 9:00 - 13:00</li>
+                    <li>Emergencias: 24/7</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contacto</h4>
+                <ul>
+                    <li><i class="fas fa-phone"></i> +56 9 7548 4128</li>
+                    <li><i class="fas fa-envelope"></i> contacto@inahuel.cl</li>
+                    <li><i class="fas fa-map-pin"></i> Rosas 1190, Santiago</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2025 Proyectos y Construcción Nahuel SpA - Integrando eficiencia para tu empresa
+        </div>
+    </footer>
+
+    <!-- Script para menú móvil y validaciones -->
+    <script>
+        // Menú hamburguesa para móvil
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        if (menuToggle && navLinks) {
+            menuToggle.addEventListener('click', function() {
+                this.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+
+            // Cerrar menú al hacer clic en un enlace
+            const links = navLinks.querySelectorAll('a');
+            links.forEach(link => {
+                link.addEventListener('click', function() {
+                    menuToggle.classList.remove('active');
+                    navLinks.classList.remove('active');
+                });
+            });
+
+            // Cerrar menú al hacer clic fuera
+            document.addEventListener('click', function(event) {
+                if (!navLinks.contains(event.target) && !menuToggle.contains(event.target)) {
+                    menuToggle.classList.remove('active');
+                    navLinks.classList.remove('active');
+                }
+            });
+        }
+
+        // Smooth scroll para todos los enlaces
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Función para validar teléfono
+        function validarTelefono() {
+            const telefono = document.getElementById('telefono').value;
+            // Eliminar espacios y caracteres no numéricos (excepto +)
+            const telefonoLimpio = telefono.replace(/[^0-9+]/g, '');
+            
+            if (telefonoLimpio.length < 9) {
+                alert('El teléfono debe tener al menos 9 caracteres numéricos');
+                return false;
+            }
+            
+            // Actualizar el campo con el valor limpio
+            document.getElementById('telefono').value = telefonoLimpio;
+            return true;
+        }
+
+        // Validación en tiempo real para el teléfono
+        document.getElementById('telefono')?.addEventListener('input', function(e) {
+            let valor = this.value.replace(/[^0-9+]/g, '');
+            if (valor.length > 15) valor = valor.slice(0, 15);
+            this.value = valor;
+        });
+
+        // Detectar iOS para ajuste de altura
+        if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+            document.documentElement.style.setProperty('--vh', window.innerHeight * 0.01 + 'px');
+        }
+    </script>
+</body>
+</html>
